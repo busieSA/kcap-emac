@@ -1,0 +1,97 @@
+
+
+<div class="container-fluid bg-body-black text-white">
+  <div class="container">
+    {% if request.path.startswith('/contact-us') %}
+      <footer class="py-5">
+        <div class="d-flex flex-column flex-sm-row justify-content-between py-4 my-4 border-top border-2">
+          <p class="text-white fs-5">&copy; {{year}} Company, Inc. All rights reserved.</p>
+          <ul class="list-unstyled d-flex">
+            <li class="ms-3"><a class="link-body-emphasis" href="#">
+              <i class="bi bi-whatsapp text-white fs-4"></i>
+            </a></li>
+            <li class="ms-3"><a class="link-body-emphasis" href="#">
+              <i class="bi bi-facebook text-white fs-4"></i>
+            </a></li>
+            <li class="ms-3"><a class="link-body-emphasis" href="#">
+              <i class="bi bi-twitter-x text-white fs-4"></i>
+            </a></li>
+          </ul>
+        </div>
+      </footer>
+    
+    {% else %}
+      <footer class="py-5">
+        <div class="row">
+         
+    
+          <div class="col-6 col-md-2 mb-3">
+            <h5>Section</h5>
+            <ul class="nav flex-column">
+              <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-white">Home</a></li>
+              <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-white">Features</a></li>
+              <!--<li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-white">Pricing</a></li>
+              <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-white">FAQs</a></li>
+              <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-white">About</a></li>-->
+            </ul>
+          </div>
+    
+          <div class="col-6 col-md-2 mb-3">
+            <h5>Opportunities</h5>
+            <ul class="nav flex-column">
+              <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-white">Internships</a></li>
+              <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-white">Jobs</a></li>
+              <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-white">Education</a></li>
+              <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-white">auditions</a></li>
+              <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-white">Funding</a></li>
+            </ul>
+          </div>
+          <div class="col-6 col-md-2 mb-3">
+            <h5>Learn More</h5>
+            <ul class="nav flex-column">
+              <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-white">AIMPRO</a></li>
+              <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-white">Inkudla</a></li>
+              <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-white">Ishashalazi</a></li>
+              <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-white">Insika</a></li>
+              <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-white">KAFF</a></li>
+            </ul>
+          </div>
+          <div class="col-md-5 offset-md-1 mb-3">
+            <form action="{{url_for('website.subscribe')}}" method="post">
+              <h5>Subscribe to our newsletter</h5>
+              <p>digest of what's new and exciting from us.</p>
+              <div class="d-flex flex-column flex-sm-row w-100 gap-2">
+                <label for="newsletter1" class="visually-hidden">Email address</label>
+                <input id="newsletter1" type="text" class="form-control" placeholder="Email address">
+                <button class="btn btn-brand-orange fw-bold text-white text-uppercase border-3" type="button">Subscribe</button>
+              </div>
+            </form>
+          </div>
+        </div>
+    
+        <div class="d-flex flex-column flex-sm-row justify-content-between py-4 my-4 border-top border-2">
+         
+          <p class="text-white fs-5">
+            
+            <a href="/" class="mb-3 mb-lg-0 me-lg-auto link-body-emphasis text-decoration-none">
+              <img src="{{url_for('static', filename='imgs/npg/white-logo-kcap.png')}}" width="40" alt="" srcset="">
+            </a>
+            &copy; {{year}} Company, Inc. All rights reserved.</p>
+          <ul class="list-unstyled d-flex">
+            <li class="ms-3"><a class="link-body-emphasis" href="#">
+              <i class="bi bi-whatsapp text-white fs-4"></i>
+            </a></li>
+            <li class="ms-3"><a class="link-body-emphasis" href="#">
+              <i class="bi bi-facebook text-white fs-4"></i>
+            </a></li>
+            <li class="ms-3"><a class="link-body-emphasis" href="#">
+              <i class="bi bi-twitter-x text-white fs-4"></i>
+            </a></li>
+          </ul>
+        </div>
+      </footer>
+      {% endif %}
+    </div>
+</div>
+
+

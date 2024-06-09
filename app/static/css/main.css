@@ -1,0 +1,369 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --brand-orange: #FF5F1F ;
+    --brand-lavender: #99AAE0;
+    --brand-white: white ;
+    --brand-black-base: rgb(8, 8, 8) ;
+    --brand-black: black ;
+  }
+  body{
+    background: var(--brand-black) !important;
+    color: var(--brand-white);
+  }
+  .bg-brand-black{
+      background-color: var(--brand-black) !important;
+  }
+  .bg-brand-black-base{
+    background-color: var(--brand-black-base) !important;
+}
+  .bg-brand-orange{
+    background-color: var(--brand-orange)  !important;
+  }
+  .bg-brand-lavender{
+    background-color: var(--brand-lavender) !important;
+  }
+  .bg-brand-white{
+    background-color: var(--brand-white) !important;
+  }
+
+  .text-brand-white{
+    color:var(--brand-white) !important;
+  }
+  .text-brand-black{
+    color: var(--brand-black);
+  }
+  .text-brand-orange{
+    color: var(--brand-orange) !important;
+  }
+
+  .border-brand-lavender{
+    border: solid;
+    border-color: var(--brand-lavender);
+  }
+  .border-brand-lavender-start{
+    border-left: solid;
+    border-color: var(--brand-lavender) !important;
+  }
+
+  .border-brand-orange-start{
+    border-left: solid;
+    border-color: var(--brand-orange) !important;
+  }
+  .border-brand-orange{
+    border: solid;
+    border-color: var(--brand-orange) !important;
+  }
+
+  .border-brand-right{
+    border-right: solid var(--brand-orange) !important;
+  }
+
+  .brand-padding {
+    padding: 4rem !important;
+    text-align: center;
+  }
+
+  .brand-diplay-huge{
+    color: white;
+    font-size: 1.7rem;
+    font-weight: bolder;
+    text-transform: uppercase;
+  }
+  .brand-hover-diplay-huge:hover{
+    color: var(--brand-orange) !important;
+  }
+
+/* about the current event section here */
+.brand-event-box{
+  padding: 15rem;
+  border: var(--brand-orange) solid;
+  border-left: none;
+  border-radius: 0 2.5rem 2.5rem 0;
+  -webkit-border-radius: 0 2.5rem 2.5rem 0;
+  -moz-border-radius: 0 2.5rem 2.5rem 0;
+  -ms-border-radius: 0 2.5rem 2.5rem 0;
+  -o-border-radius: 0 2.5rem 2.5rem 0;
+}
+
+
+.btn-brand-donate{
+  background: var(--brand-orange) !important;
+  padding: 1.3rem;
+}
+
+.btn-brand-orange{
+  border: solid;
+  border-color: var(--brand-orange) !important;
+  padding: 1.5rem;
+}
+
+ .btn-brand-orange:hover{
+  background: var(--brand-orange) !important;
+  color: white !important;
+ }
+
+ .nav-link:active{
+  border-bottom: solid;
+  border-color: var(--brand-black) !important;
+ }
+
+.brand-get-in-touch{
+  background-image: linear-gradient(180deg,var(--brand-orange), rgba(8, 8, 8, 0.63)),url(../imgs/sunset.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.bg-brand-img-login{
+  height: 100vmin; 
+  width: 100%;
+  background-image: linear-gradient(-99deg,#000000f3,#000000   ), url(../imgs/jpg/IMG_0240_scaled.JPG);
+  background-size: cover;
+  background-repeat: no-repeat;
+  align-content: center;
+}
+.bg-brand-login{
+  background: #ff5f1f5c;
+}
+.bg-brand-contact-us{
+  height: 60vmin;
+  width: 100%;
+  background-image: linear-gradient(180deg,#000000eb,#ff5f1fdf), url(../imgs/jpg/bg-contactus_scaled.JPG);
+  background-size: cover;
+  background-repeat: no-repeat;
+  align-content: center;
+}
+
+.banner-brand-header {
+  background-image: linear-gradient(to bottom, var(--brand-orange), var(--brand-black)), url(../imgs/Dance-Class-2014.jpg);
+  background-size: cover;
+  background-position: center;
+  background-blend-mode: hard-light;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  color: #fff;
+}
+
+#brandMission{
+  background: linear-gradient(90deg, #000000b6, #ff5f1f8e ), url(../imgs/bg/bg0.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  padding: 15vmin;
+}
+
+#brandVision{
+  background: linear-gradient(90deg, #ff5f1fa6, #000000b6 ), url(../imgs/bg/bg1.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  padding: 15vmin;
+}
+
+.img-flip{
+  transform: scaleX(-1);
+}
+
+#emacCentre{
+  padding: 15vmin;
+}
+
+#kcap{
+  padding: 20vmin;
+}
+#KwaMashu{
+  padding: 20vmin;
+}
+#CTA{
+  padding: 15vmin;
+}
+
+
+/* Improved code starts here */
+
+
+.loc-svg-0{
+    background-image: url(../imgs/wave_top.svg);
+    background-repeat: none;
+    background-size: cover;
+}
+.loc-svg-b-gold{
+    background-image: url(../imgs/wave_bottom_gold.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.loc-svg-symbol{
+    background-image: url(../imgs/symbol-scatter.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.loc-nav-logo{
+    padding-left: 2em;
+    padding-top: 1em;
+}
+.loc-file-img{
+    background-image: url(../imgs/attorney-2743547_640.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.loc-border-gold{
+    border-style: solid ;
+    border-color: #bb8d37;
+}
+
+.loc-calendar{
+    background-color: #938C31;
+    text-align: center;
+    color: white;
+    font-weight: 900;
+}
+
+.loc-cal-body{
+    columns: auto;
+}
+
+.loc-border-green{
+    border-style: solid ;
+    border-color: green;
+}
+
+.loc-no-data{
+    padding: 10em;
+    width: auto;
+    height: 50vh;
+}
+
+.space{
+    background-image:linear-gradient(to bottom, #000000b6, #ff5f1f8e), url(../imgs/jpg/bg1.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 75vh;
+    align-content: center;
+}
+
+
+.banner{
+  background-image:linear-gradient(to bottom, #ff5f1fd0, #000000e7), url(../imgs/jpg/banner.JPG);
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 80vh;
+  align-content: center;
+}
+
+.hatching{
+    background-image: url(../imgs/hatching.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.flowers{
+    background-image: url(../imgs/flowers.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+/*
+The ckeditor css 
+*/
+
+/* Set the default font size for the editor */
+.ck-content {
+    font-size: 16px;
+  }
+  
+  /* Increase the height of table rows */
+  .ck-content table {
+    border-collapse: collapse;
+    width: 100%;
+    margin: 1em auto;
+  }
+  
+  .ck-content table td,
+  .ck-content table th {
+    padding: 1em;
+    height: 3em; /* Change this value to increase or decrease row height */
+    border: 1px solid #ccc;
+  }
+  
+  /* Increase the width of table columns */
+  .ck-content table th {
+    width: 25%; /* Change this value to increase or decrease column width */
+  }
+  /* Set the height of the editor container */
+.ck-editor__editable {
+    height: 15em; /* Change this value to increase or decrease the height */
+  }
+  
+
+/*Admin css here */
+
+.bg-img-brand-cover{
+    background-image: linear-gradient(to bottom,var(--brand-orange), rgba(8, 8, 8, 0.897)),url(../imgs/sunset.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+}
+
+.loc-law{
+    background-image: linear-gradient(to bottom, rgba(18, 76, 61, 0.904), rgba(147, 140, 49, 0.459)),url(../imgs/law.jpeg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: auto;
+}
+
+/*
+
+background-image: url(../imgs/4-Dance-Class.jpg);
+        background-size: cover;
+        background-position: center;
+
+*/
+      .banner-loc {
+        
+        height: 100vh;
+        width: auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        color: #fff;
+        background-color: #f3380b !important;
+      }
+      
+      .banner-loc h1 {
+        font-size: 4rem;
+        margin-bottom: 1rem;
+      }
+  
+      .banner-loc p {
+        font-size: 1.5rem;
+        margin-bottom: 2rem;
+      }
+  
+      .btn-primary {
+        padding: 1rem 2rem;
+        font-size: 1.6rem;
+      }
+  .mailto :hover{
+    background-color:#38507E ;
+    color: white;
+         }
+
+
+.nav-link:hover{
+  background-color: var(--brand-orange) !important;
+  border-radius: 0.5rem !important;
+  -webkit-border-radius: 0.5rem !important;
+  -moz-border-radius: 0.5rem !important;
+  -ms-border-radius: 0.5rem !important;
+  -o-border-radius: 0.5rem !important;
+}

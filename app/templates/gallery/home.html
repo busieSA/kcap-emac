@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+
+{% block body %}
+
+<div class="container-fluid">
+    <div class="container p-3">
+        <div class="row">
+            {% for image in images %}
+            
+                <div class="col-lg-4 col-md-4 col-sm-4 g-3">
+                    <a href="{{url_for('static', filename='imgs/uploads/' ~ image.filename)}}" class="glightbox rounded" data-gallery="gallery">
+                        <img src="{{url_for('static', filename='imgs/uploads/' ~ image.filename)}}" class="img-fluid rounded" alt="{{image.filename}}">
+                    </a>
+                </div>
+
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+{% endblock body %}

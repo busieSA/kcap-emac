@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+
+{% block body %}
+
+<div class="container-fluid">
+    <p class="h3 text-white text-center"> Upcoming</p>
+    {% if events %}
+    <div class="container p-5">
+        
+        
+        <div class="row justify-content-center mb-3">
+            {% for event in events %}
+            
+            
+            <div class="col-lg-6 col-md-6 col-sm-12 align-self-center">
+                <div class="row g-0 border-brand-orange shadow rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+                    <div class="col p-4 d-flex flex-column position-static text-white">
+                        <p class=""><strong class="mb-3 text-white-emphasis"> <span class="text-uppercase fst-italic px-3"> venue :</span> {{ event.venue }} </strong></p>
+                        <h3 class="mb-0 text-brand-orange fw-bolder text-uppercase"> {{ event.name }}</h3>
+                        <div class="mb-1 text-body-primary">Nov 12</div>
+                        <p class="card-text mb-auto">{{ event.description }}</p>
+                        
+                        <div class="my-1 text-body-primary align-self-center">
+                            <span class="text-uppercase fst-italic px-3"> date created :</span> {{ event.date_created.month }}/{{ event.date_created.year}}
+                        </div>
+                    </div>
+                    <div class="col-auto d-none d-lg-block align-self-center">
+                        <img src="{{url_for('static', filename='imgs/jpg/bg1.jpg')}}" class="img-fluid" alt="" srcset="">
+                    </div>
+                </div>
+            </div>
+            
+            {% endfor %}
+        </div>
+        
+        {% else %}
+        
+        
+        <div class="container p-5 bg-brand-orange rounded space">
+            <p class="text-center text-uppercase text-white fw-bolder">We Have no upcoming events Yet</p>
+        </div>
+        
+        {% endif %}
+    </div>
+</div>
+
+{% endblock body %}

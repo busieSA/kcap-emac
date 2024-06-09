@@ -1,0 +1,41 @@
+{% extends "auth/base.html" %}
+
+{% block body %}
+
+<div class="container-fluid bg-brand-img-login">
+    <div class="container">
+        <header class="d-flex flex-wrap justify-content-center py-3 mb-4">
+          <a href="{{url_for('website.home')}}" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
+            <img src="{{url_for('static', filename='imgs/npg/white-logo-kcap.png')}}" width="150" alt="" srcset="">
+            <span class="fs-4 text-white fw-bold">KCAP</span>
+          </a>
+        </header>
+    </div>
+    {% include "_getflashed.html" %}
+    <p class="text-center text-white fw-bolder text-uppercase display-4">Login</p>
+    <div class="container shadow-lg p-5 bg-brand-login rounded border-5">
+        <div class="row justify-content-center">
+            <div class="col-lg-3 col-dm-3 col-sm-12 align-self-center"></div>
+            <div class="col-lg-6 col-dm-6 col-sm-12 align-self-center rounded shadow p-3">
+                <form action="{{url_for('auth.login')}}" method="post">
+                    {{ form.csrf_token }}
+
+                    <div class="mb-3">
+                        {{ form.email(class='form-control form-control-lg text-center fw-bold' , placeholder="Email") }}
+                    </div>
+                    <div class="mb-3">
+                        {{ form.password(class='form-control form-control-lg text-center fw-bold' , placeholder="Password") }}
+                    </div>
+                    <div class="mb-3">
+                        {{ form.submit(class='btn btn-brand-orange border-3 form-control form-control-lg text-center fw-bold text-uppercase' , placeholder="Email") }}
+                    </div>
+                </form>
+            </div>
+            <div class="col-lg-3 col-dm-3 col-sm-12 align-self-center"></div>
+
+            <p class="text-white text-center pt-3">Not registered? <a href="{{url_for('auth.register')}}" class="text-decoration-none text-dark fw-bold">Register</a></p>
+        </div>
+    </div>
+</div>
+
+{% endblock body %}

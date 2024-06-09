@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+
+{% block body %}
+
+<div class="container-fluid">
+    <div class="container">
+        <div class="border p-5 rouded">
+            <form action="{{url_for('gallery.upload_images')}}" method="post" enctype="multipart/form-data" class="mb-4">
+
+                <div class="input-group">
+                    <input type="file" class="form-control border-3 border-brand-orange" name="file" required id="inputGroupFile04" aria-describedby="inputGroupFileAddon04" aria-label="Upload">
+                    <button type="submit" class="btn btn-brand-orange border-3 text-white fw-bolder px-3" type="button" id="inputGroupFileAddon04">Upload</button>
+                  </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock body %}

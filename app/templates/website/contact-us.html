@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block body %}
+
+<section class="container-fluid text-white bg-brand-contact-us">
+    <div class="container">
+        <p class="text-center fw-bolder text-uppercase display-6">Contact Us</p>
+        <div class="row justify-content-center">
+            <div class="col-md-4 col-lg-4 col-sm-12 align-self-center"></div>
+            <div class="col-md-8 col-lg-8 col-sm-12 align-self-center border rounded p-3">
+                
+                {% include "_getflashed.html" %}
+                <form action="{{url_for('website.contact_us')}}" method="post">
+    
+                    {{ form.csrf_token }}
+                    <div class="mb-3">
+                        {{form.subject(class="form-control text-center", placeholder="Subject (Required)")}}
+                    </div>
+                    <div class="mb-3">
+                        <div class="row">
+                            <div class="col">
+                                {{ form.name(class="form-control text-center", placeholder="You Name (Required)") }}
+                            </div>
+                            <div class="col">
+                                {{ form.email(class="form-control text-center", placeholder="Your email (Required)") }}
+                            </div>
+                        </div>
+    
+                    </div>
+                    <div class="mb-3">
+                        {{form.message(class="form-control text-center", col="30", rows="10",placeholder="Write  Your Message" )}}
+                    </div>
+                    {{form.submit(class="btn btn-warning text-white text-uppercase fw-bold form-control",value="send")}}
+                </form>
+
+            </div>
+        </div>
+    </div>
+</section>  
+
+{% endblock body %}

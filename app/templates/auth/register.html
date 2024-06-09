@@ -1,0 +1,51 @@
+{% extends "auth/base.html" %}
+
+{% block body %}
+
+<div class="container-fluid p-3 bg-brand-img-login">
+    <div class="container">
+        <header class="d-flex flex-wrap justify-content-center py-3 mb-4">
+          <a href="{{url_for('website.home')}}" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
+            <img src="{{url_for('static', filename='imgs/npg/white-logo-kcap.png')}}" width="150" alt="" srcset="">
+            <span class="fs-4 text-white fw-bold">KCAP</span>
+          </a>
+        </header>
+    </div>
+    {% include "_getflashed.html" %}
+    <div class="container shadow p-5 bg-brand-login rounded border-5" align="center">
+        <div class="row justify-content-center">
+            <div class="col-dm-3 col-lg-3 col-sm-12 align-self-center"></div>
+            <div class="col-dm-6 col-lg-6 col-sm-12 align-self-center">
+                <form action="{{url_for('auth.register')}}" method="post">
+
+                    {{ form.csrf_token }}
+                    <div class="mb-3">
+                        {{ form.name(class='form-control text-center', placeholder='Name') }}
+                    </div>
+                    <div class="mb-3">
+                        {{ form.surname(class='form-control text-center', placeholder='Surname') }}
+                    </div>
+                    <div class="mb-3">
+                        {{form.email(class='form-control text-center', placeholder='Email')}}
+                    </div>
+                    <div class="mb-3">
+                        {{ form.password(class='form-control text-center', placeholder='Password')}}
+                    </div>
+                    <div class="mb-3">
+                        {{ form.confirm(class='form-control text-center', placeholder='Confirm password')}}
+                    </div>
+                    <div class="mb-3">
+                        {{ form.accept_tos(class='form-check.input p-3') }}
+                        {{ form.accept_tos.label(class='px-3 fw-bold text-white') }}
+                    </div>
+                        {{ form.submit(class='btn btn-brand-orange border-3 form-control form-control-lg text-center fw-bold text-uppercase')}}
+                </form>
+            </div>
+            <div class="col-dm-3 col-lg-3 col-sm-12 align-self-center"></div>
+            <p class="text-white text-center pt-3">already registered? <a href="{{url_for('auth.login')}}" class="text-decoration-none text-dark fw-bold">Login</a></p>
+        </div>
+    </div>
+
+</div>
+
+{% endblock body %}
