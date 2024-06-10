@@ -1,2 +1,2 @@
-.env/
-base.html/
+/.env
+/base.html
