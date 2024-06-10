@@ -43,7 +43,7 @@ def app_starter():
     from app.auth import auth, views
     from app.website import website, views
     from app.education import education, views
-    from app.compatitions import compatitions, views
+    from app.events import events, views
     from app.bookings import bookings, views
     from app.gallery import gallery, views
 
@@ -52,7 +52,7 @@ def app_starter():
     app.register_blueprint(auth, url_prefix='/auth')
     app.register_blueprint(website, url_prefix='/')
     app.register_blueprint(education, url_prefix='/education')
-    app.register_blueprint(compatitions, url_prefix='/compatitions')
+    app.register_blueprint(events, url_prefix='/events')
     app.register_blueprint(bookings, url_prefix='/bookings')
     app.register_blueprint(gallery, url_prefix='/gallery')
 
