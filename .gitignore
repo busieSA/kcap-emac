@@ -1,2 +1,10 @@
+
+# folder which have been ignored due to code needing to debug and fix
+# how to ignore folders /folderName/*
+#how to ignore files /.env 
+#how to ignore files ending with eg *.log 
+
 /.env
+
+#old base html old file ref here
 /base.html
