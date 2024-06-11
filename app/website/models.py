@@ -15,7 +15,7 @@ class Subscriber(db.Model):
     name = db.Column(db.String(), nullable=False)
     email = db.Column(db.String(), nullable=False, unique=True)
 
-
+"""
 #important note can be  educational/compatition/opening/closing event ect, create relationship.
 class Event(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -28,3 +28,4 @@ class Event(db.Model):
 
 
 
+"""

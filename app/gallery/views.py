@@ -41,3 +41,4 @@ def upload_images():
             flash('Image Upload successful', category='success')
             return redirect(url_for('gallery.home'))        
     return render_template('gallery/upload.html')
+

@@ -7,10 +7,22 @@ from app.events.forms import EventForm
 def home():
     title = "Events"
     form = EventForm()
-    
+    #query the db for events to list on the site here    
     return render_template("events/home.html", title=title, form=form)
 
 
-@events.route('/create-event')
+@events.route('/create-event', methods=['POST'])
 def create_event():
-    return "we are working on it bear with me"
+    title = "Create New Event"
+    form = EventForm()
+    return render_template('', title=title, form=form)
+
+
+@events.route('/update-event')
+def update_event():
+    return "update event here"
+
+@events.route('/delete-event')
+def delete_event():
+    return "Delete event Here"
+

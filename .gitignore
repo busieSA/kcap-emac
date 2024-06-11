@@ -5,6 +5,7 @@
 #how to ignore files ending with eg *.log 
 
 /.env
-
+/README.md
 #old base html old file ref here
 /base.html
+
