@@ -4,7 +4,74 @@
 
 <div class="container-fluid p-3">
 
-    <p class="h3">Hello Donate</p>
+
+    <div class="container p-5 text-white">
+        <p class="display-4 text-center">Impact of your donations on the community and the arts.</p>
+
+    </div>
+
+
+
+    <div class="container p-5">
+        <div class="row">
+            <div class="col-lg-6 col-sm-12 col-md-6 text-white">
+                <p class="text-uppercase text-uppercase fw-bold text-center h3">How Your Donation Helps:</p>
+        <p class="text-center">Supports community outreach programs and initiatives, bringing the arts to underserved populations. <br>
+            By supporting us, you contribute to empowering aspiring artists, fostering creativity, and promoting inclusivity through the arts.
+        </p>
+    {#
+        <stripe-buy-button
+      buy-button-id="buy_btn_1Ojg5ZFqSacsKeQPm6XXZ8Lq"
+      publishable-key="pk_test_51OfN7KFqSacsKeQPJqvSfcxK23MRulPED5uRGaalhziq7Xlpnp5eB6yDz5UYLP3LBB68R4I5uvochKkQ2SdcpIHr0003XAIISy"
+    >
+    </stripe-buy-button>#}
+    
+        <div class="p-5" align="center">
+            <a href="https://donate.stripe.com/test_4gw17Ea9ie5z9s49AA" target="_blank" class="text-decoration-none fs-1 donate-text fw-bolder border-brand-orange border-1 text-brand-orange rounded p-3 btn-brand-orange">DONATE NOW</a>
+        </div>
+    
+            </div>
+    
+    <div class="col-lg-6 col-sm-12 col-md-6 text-white">
+        <p class="text-uppercase text-uppercase fw-bold text-center h3">How Your Sponsorship Helps:</p>
+        <p class="text-center">Supports community outreach programs and initiatives, bringing the arts to underserved populations. <br>
+            By supporting us, you contribute to empowering aspiring artists, fostering creativity, and promoting inclusivity through the arts.
+        </p>
+        <div class="p-5" align="center">
+            <a href="#" class="text-decoration-none fs-1 donate-text fw-bolder border-brand-orange border-1 text-brand-orange rounded p-3 btn-brand-orange">SPONSOR NOW</a>
+        </div>
+
+    </div>
+        </div>
+    
+        <div class="container text-white brand-padding">
+            <p class="h3 text-uppercase mb-3">Direct Deposits</p>
+            <div class="row border-brand-orange border-5 rounded align-items-center bg-white">
+                <p class="text-muted fs-3">Standard Bank</p>
+                <div class="col-auto border-brand-orange-start border-5">
+                    <img src="{{url_for('static', filename='/imgs/standard-bank-seeklogo.com.svg')}}" alt="" srcset="" width="200">
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-12 ps-5 text-dark">
+                    <p class="">Account Number: <span>250484196</span> </p>
+                    <p class="">Branch Code: <span>040826</span> </p>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-12 align-self-center" align='center'>
+                    <div class="">
+                        <a href="{{ url_for('static', filename='/pdf/Bank-confirmation-letter-acc-196.pdf') }}" target="_blank" class="text-decoration-none">
+                            <p class="border-brand-orange rounded p-3 px-5 fw-bold">Download Bank Confirmation Letter </p>
+                        </a>
+                    </div>
+                    {#
+                    <div class="container">
+                        <embed src="{{ url_for('static', filename='/pdf/Bank-confirmation-letter-acc-196.pdf') }}" type="application/pdf" width="100%" height="200px" />
+                    </div>
+                        #}
+                    </div>
+            </div>
+        </div>
+    </div>
+    
+
 
 </div>
 

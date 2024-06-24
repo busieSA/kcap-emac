@@ -1,0 +1,90 @@
+<!-- create_entry.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Entry Form</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/5.1.0/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <h1 class="mt-5 mb-4">Create Entry Form</h1>
+        <form method="POST">
+            <!-- School -->
+            <div class="mb-3">
+                <label for="school_name" class="form-label">School Name</label>
+                <input type="text" class="form-control" id="school_name" name="school_name" required>
+            </div>
+
+            <!-- Teacher -->
+            <div class="mb-3">
+                <label for="teacher_name" class="form-label">Teacher Name</label>
+                <input type="text" class="form-control" id="teacher_name" name="teacher_name" required>
+            </div>
+            <div class="mb-3">
+                <label for="teacher_surname" class="form-label">Teacher Surname</label>
+                <input type="text" class="form-control" id="teacher_surname" name="teacher_surname" required>
+            </div>
+            <div class="mb-3">
+                <label for="teacher_email" class="form-label">Teacher Email</label>
+                <input type="email" class="form-control" id="teacher_email" name="teacher_email" required>
+            </div>
+
+            <!-- Tel -->
+            <div class="mb-3">
+                <label for="tel_number" class="form-label">Telephone Number</label>
+                <input type="tel" class="form-control" id="tel_number" name="tel_number" required>
+            </div>
+
+            <!-- Area -->
+            <div class="mb-3">
+                <label for="area_name" class="form-label">Area Name</label>
+                <input type="text" class="form-control" id="area_name" name="area_name" required>
+            </div>
+
+            <!-- Synopsis -->
+            <div class="mb-3">
+                <label for="synopsis_text" class="form-label">Synopsis Text</label>
+                <textarea class="form-control" id="synopsis_text" name="synopsis_text" rows="3" required></textarea>
+            </div>
+
+            <!-- Performer -->
+            <div class="mb-3">
+                <label for="performer_name" class="form-label">Performer Name</label>
+                <input type="text" class="form-control" id="performer_name" name="performer_name" required>
+            </div>
+            <div class="mb-3">
+                <label for="performer_surname" class="form-label">Performer Surname</label>
+                <input type="text" class="form-control" id="performer_surname" name="performer_surname" required>
+            </div>
+            <div class="mb-3">
+                <label for="performer_age" class="form-label">Performer Age</label>
+                <input type="text" class="form-control" id="performer_age" name="performer_age" required>
+            </div>
+
+            <!-- Gender 
+            <div class="mb-3">
+                <label for="gender_name" class="form-label">Gender Name</label>
+                <input type="text" class="form-control" id="gender_name" name="gender_name" required>
+            </div>-->
+
+            <div class="mb-3">
+                <label for="performer_gender" class="form-label">Gender</label>
+                <select class="form-control" name="gender_name" required>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                </select>
+            </div>
+
+            <!-- Submit Button -->
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+
+    <!-- Bootstrap 5 JS and dependencies (optional) -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.1.0/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

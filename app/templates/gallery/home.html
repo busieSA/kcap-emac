@@ -2,21 +2,62 @@
 
 
 {% block body %}
-
+{% include "ad_banners.html" %}
 <div class="container-fluid">
+    {% if current_user.is_authenticated %}
+    <div class="container">
+        <div class="border p-5 rouded">
+            <form action="{{url_for('gallery.upload_images')}}" method="post" enctype="multipart/form-data" class="mb-4">
+
+                <div class="input-group">
+                    <input type="file" class="form-control border-3 border-brand-orange" name="file" required id="inputGroupFile04" aria-describedby="inputGroupFileAddon04" aria-label="Upload">
+                    <button type="submit" class="btn btn-brand-orange border-3 text-white fw-bolder px-3" type="button" id="inputGroupFileAddon04">Upload</button>
+                  </div>
+            </form>
+        </div>
+    </div>
+
+    
+    
     <div class="container p-3">
         <div class="row">
             {% for image in images %}
             
-                <div class="col-lg-4 col-md-4 col-sm-4 g-3">
-                    <a href="{{url_for('static', filename='imgs/uploads/' ~ image.filename)}}" class="glightbox rounded" data-gallery="gallery">
-                        <img src="{{url_for('static', filename='imgs/uploads/' ~ image.filename)}}" class="img-fluid rounded" alt="{{image.filename}}">
+            <div class="col-lg-4 col-md-4 col-sm-4 g-3">
+                <div class="card border-brand-orange border-2 border-brand-start-orange card-brand-frame" >
+                    <a href="{{url_for('static', filename='imgs/uploads/' ~ image.filename)}}" class="glightbox rounded img-fluid" data-gallery="gallery">
+                        <img src="{{url_for('static', filename='imgs/uploads/' ~ image.filename)}}" class="img-fluid rounded card-img-top brand-thumbnail" alt="{{image.filename}}">
                     </a>
                 </div>
-
+            </div>
+            
             {% endfor %}
         </div>
     </div>
+    
+    {% else %}
+    
+    
+    
+    
+    <div class="container p-3">
+        <div class="row">
+            {% for image in images %}
+            
+            <div class="col-lg-4 col-md-4 col-sm-4 g-3">
+                <a href="{{url_for('static', filename='imgs/uploads/' ~ image.filename)}}" class="glightbox mg-fluid rounded img-thumbnail" data-gallery="gallery">
+                    <img src="{{url_for('static', filename='imgs/uploads/' ~ image.filename)}}" class="img-fluid rounded brand-thumbnail" alt="{{image.filename}}">
+                </a>
+            </div>
+            
+            {% endfor %}
+        </div>
+    </div>
+
+    
+    {% endif %}
+
+
 </div>
 
 {% endblock body %}

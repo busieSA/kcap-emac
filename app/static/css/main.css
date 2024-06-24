@@ -10,6 +10,8 @@
     --brand-white: white ;
     --brand-black-base: rgb(8, 8, 8) ;
     --brand-black: black ;
+    --brand-shade-one: #101F09;
+    --brand-shade-two: #091C32;
   }
   body{
     background: var(--brand-black) !important;
@@ -29,6 +31,13 @@
   }
   .bg-brand-white{
     background-color: var(--brand-white) !important;
+  }
+
+  .bg-brand-shade-one{
+    background-color: var(--brand-shade-one) !important;
+  }
+  .bg-brand-shade-two{
+    background-color: var(--brand-shade-two) !important;
   }
 
   .text-brand-white{
@@ -66,6 +75,10 @@
   .brand-padding {
     padding: 4rem !important;
     text-align: center;
+  }
+  .brand-main-padding{
+    padding: 6rem;
+    align-content: center !important;
   }
 
   .brand-diplay-huge{
@@ -119,9 +132,9 @@
   background-position: center;
 }
 .bg-brand-img-login{
-  height: 100vmin; 
+  height:auto !important; 
   width: 100%;
-  background-image: linear-gradient(-99deg,#000000f3,#000000   ), url(../imgs/jpg/IMG_0240_scaled.JPG);
+  background-image: linear-gradient(-99deg,#000000ce,#000000   ), url(../imgs/jpg/IMG_0240_scaled.JPG);
   background-size: cover;
   background-repeat: no-repeat;
   align-content: center;
@@ -129,13 +142,36 @@
 .bg-brand-login{
   background: #ff5f1f5c;
 }
+
+.brand-thumbnail{
+  width: 100% !important;
+  height: 12.5rem !important;
+}
+.card-brand-frame{
+  background: url(../imgs/svg/frame.svg) no-repeat center;
+  background-size: cover;
+  z-index: 1;
+  width: 100%;
+  height: 150rem;
+}
+
+.card-brand-sframe img{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+
 .bg-brand-contact-us{
-  height: 60vmin;
+  height: auto !important;
   width: 100%;
   background-image: linear-gradient(180deg,#000000eb,#ff5f1fdf), url(../imgs/jpg/bg-contactus_scaled.JPG);
   background-size: cover;
   background-repeat: no-repeat;
   align-content: center;
+  display: flex;
 }
 
 .banner-brand-header {

@@ -7,7 +7,7 @@ class Venue(db.Model):
     name = db.Column(db.String(), nullable=False)
 
 
-class VanueBooking(db.Model):
+class Booking(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(), nullable=False)
 

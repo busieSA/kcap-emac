@@ -2,6 +2,8 @@
 
 {% block body %}
 
+{% include "ad_banners.html" %}
+
 <div class="container-fluid p-5">
 
     <p class="h3 text-white text-center">Enter Our compatitions</p>
@@ -12,33 +14,37 @@
 
     </div>
 </div>
-<div class="container-fluid">
-    <div class="border-brand-orange p-5">
-        <p class="text-white text-center">Add More Events here </p>
-        <p class="text-white text-center">User must be logged in to view this form</p>
-        <form method="POST" action="{{ url_for('events.create_event') }}">
-            {{ form.hidden_tag() }}
-            <div class="form-group text-white">
-                {{ form.name.label }}
-                {{ form.name(class_='form-control') }}
-            </div>
-            <div class="form-group text-white">
-                {{ form.description.label }}
-                {{ form.description(class_='form-control') }}
-            </div>
-            <div class="form-group text-white">
-                {{ form.date.label }}
-                {{ form.date(class_='form-control') }}
-            </div>
-            <div class="form-group text-white">
-                {{ form.location.label }}
-                {{ form.location(class_='form-control') }}
-            </div>
-            <div class="form-group text-white">
-                {{ form.submit(class_='btn btn-primary') }}
-            </div>
-        </form>
-    </div>
+{# 
+
+
+    <div class="container-fluid">
+        <div class="border-brand-orange p-5">
+            <p class="text-white text-center">Add More Events here </p>
+            <p class="text-white text-center">User must be logged in to view this form</p>
+            <form method="POST" action="{{ url_for('events.create_event') }}">
+                {{ form.hidden_tag() }}
+                <div class="form-group text-white">
+                    {{ form.name.label }}
+                    {{ form.name(class_='form-control') }}
+                </div>
+                <div class="form-group text-white">
+                    {{ form.description.label }}
+                    {{ form.description(class_='form-control') }}
+                </div>
+                <div class="form-group text-white">
+                    {{ form.date.label }}
+                    {{ form.date(class_='form-control') }}
+                </div>
+                <div class="form-group text-white">
+                    {{ form.location.label }}
+                    {{ form.location(class_='form-control') }}
+                </div>
+                <div class="form-group text-white">
+                    {{ form.submit(class_='btn btn-primary') }}
+                </div>
+            </form>
+        </div>
+#}
 </div>
 
 

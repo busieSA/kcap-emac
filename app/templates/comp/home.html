@@ -1,0 +1,126 @@
+{% extends "base.html" %}
+
+{% block body %}
+
+<div class="container-fluid text-white">
+
+    {% if current_user.is_authenticated %}
+    
+    
+    <div class="container">
+
+       <div class="row justify-content-center">
+        <div class="col-lg-8 col-md-8 col-sm-12 align-self-center">
+            <h1>Available Competitions</h1>
+        </div>
+
+        <div class="col-auto align-self-center me-auto">
+            
+        </div>
+
+       </div>
+        <table class="table table-striped table-dark table-hover table-responsive table-bordered">
+            <thead class="text-center text-uppercase fw-bolder">
+              <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Date</th>
+                <th scope="col">Action 
+
+                    <a class="text-decoration-none" tabindex="0" role="button" data-bs-toggle="popover" data-bs-trigger="focus" data-bs-title="Dismissible popover" data-bs-content="And here's some amazing content. It's very engaging. Right?" href="{{ url_for('comp.add_competition') }}">
+                        <i class="bi bi-plus-square-fill text-brand-orange fs-5 px-3"></i>
+                    </a>
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+
+                {% for competition in competitions %}
+                
+                <tr>
+                    <td>{{ competition.name }}</td>
+                    <td> <strong> Month:</strong> {{ competition.date.day }}/{{ competition.date.month }}/{{ competition.date.year}}  <strong class="ps-2" > Time:</strong> {{ competition.date.hour }}:{{ competition.date.minute }}  </td>
+                    <td>
+                        <a class="btn btn-info me-3" href="{{ url_for('comp.update_competition', id=competition.id) }}">Edit</a>
+                        <form action="{{ url_for('comp.delete_competition', id=competition.id) }}" method="post" style="display:inline;">
+                            <button class="btn btn-brand-orange text-white text-uppercase " type="submit">Delete</button>
+                        </form>
+                    </td>
+                </tr>
+                
+                {% endfor %}
+            </tbody>
+          </table>
+       
+    </div>
+
+    <div class="container">
+        
+        <div class="row justify-content-center">
+            {% for competition in competitions %}
+            <div class="col-lg-4 col-md-4 col-sm-12 align-self-center">
+                <div class="card text-white bg-brand-shade-two">
+                    <div class="card-body">
+                      <h5 class="card-title text-center mb-3 fw-bold">{{competition.name}}</h5>
+                      {# Checking the event status in the template
+                        {% if competition.status < current_time %}
+                        <h6 class="card-subtitle mb-2 text-brand-orange text-uppercase fst-italic">past</h6>
+                        {% else %}
+                        
+                        {% endif %}
+                        
+                        The compare needs checking cause the utcnow() function has problems and i am not sureas to why that
+                        is <happening class=""></happening>
+                        
+                        #}
+                        <div class="row">
+                            <div class="col"><h6 class="card-subtitle mb-2 text-brand-orange text-uppercase fst-italic">{{ competition.status }}</h6></div>
+                            <div class="col-auto"><h6 class="card-subtitle mb-2 text-brand-orange text-uppercase fst-italic">{{ competition.date }}</h6></div>
+                        </div>
+                      <img class="card-img-top img-fluid rounded mb-3" src="{{url_for('static', filename='imgs/uploads/' ~ competition.filename)}}" alt="" srcset="">
+                      <p class="card-text">{{ competition.description }}</p>
+                      <a href="{{'auth.register'}}" class="card-link text-white text-uppercase text-decoration-none">Register</a>
+                    </div>
+                  </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    
+    
+    
+    {% else %}
+    
+    
+    
+    <div class="container">
+        
+        <div class="row justify-content-center">
+            {% for competition in competitions %}
+            <div class="col-lg-4 col-md-4 col-sm-12 align-self-center">
+                <div class="card text-white">
+                    <div class="card-body">
+                      <h5 class="card-title">{{competition.name}}</h5>
+                      <h6 class="card-subtitle mb-2 text-body-secondary">Card subtitle</h6>
+                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                      <a href="#" class="card-link">Card link</a>
+                      <a href="#" class="card-link">Another link</a>
+                    </div>
+                  </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    
+    {% endif %}
+
+   <script>
+
+    const popover = new bootstrap.Popover('.popover-dismiss', {
+        trigger: 'focus'
+      })
+   </script>
+   
+</div>
+
+{% endblock body %}

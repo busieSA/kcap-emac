@@ -4,32 +4,73 @@
 
 {% block body %}
 
+{% include "ad_banners.html" %}
+
+<div class="container-fluid">
+
+    <div class="row justify-content-center">
+        {% for competition in competitions %}
+        <div class="col-lg-4 col-md-4 col-sm-12 align-self-center">
+            <div class="card text-white">
+                <div class="card-body">
+                  <h5 class="card-title">{{competition.name}}</h5>
+                  <h6 class="card-subtitle mb-2 text-body-secondary">Card subtitle</h6>
+                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                  <a href="#" class="card-link">Card link</a>
+                  <a href="#" class="card-link">Another link</a>
+                </div>
+              </div>
+        </div>
+        {% endfor %}
+    </div>
+
+</div>
 <div class="container-fluid text-center p-3">
-    <div class="container">
-        
+    <div class="container py-5">
         <div class="row justify-content-center g-3">
-            <div class="col-sm-12 col-lg-6 col-md-6 align-self-center">
-                <div class="border-brand-orange border-1 text-white p-3 rounded">
+            <div class="col-sm-12 col-lg-6 col-md-6 align-self-stretch d-flex flex-column">
+                <div class="border-brand-orange border-1 text-white p-3 rounded flex-grow-1">
                     <h3 class="text-uppercase fw-bold">Mission</h3>
                     <p class="">
                         KCAP EMAC aims to discover, develop, expose, and contribute artists towards sustainable employment opportunities while
-                         providing creative, quality arts and entertainment to the community.
+                        providing creative, quality arts and entertainment to the community.
                     </p>
                 </div>
             </div>
-            <div class="col-sm-12 col-lg-6 col-md-6 align-self-center">
-                <div class="border-brand-orange border-1 text-white p-3 rounded">
+            <div class="col-sm-12 col-lg-6 col-md-6 align-self-stretch d-flex flex-column">
+                <div class="border-brand-orange border-1 text-white p-3 rounded flex-grow-1">
                     <h3 class="text-uppercase fw-bold">Vision</h3>
                     <p class="">
                         KCAP (EMAC) aspires to become a leading community organization in South Africa, fostering a positive and vibrant artistic
-                         environment where various forms of arts are developed and appreciated, thereby enhancing the quality of life for youth, artists, and the community.
+                        environment where various forms of arts are developed and appreciated, thereby enhancing the quality of life for youth, artists, and the community.
                     </p>
                 </div>
             </div>
         </div>
 
-        <div id="emaccenter">
-            
+    </div>
+    <a href="#" class="text-decoration-none d-flex align-items-center justify-content-end text-brand-orange fw-bolder pe-5 fs-4">Learn More...</a>
+
+    
+</div>
+
+<div class="container-fluid bg-brand-shade-one">
+    <div class="container brand-main-padding">
+        <p class="h4 text-white text-center display-4 text-uppercase fw-bold shadow-lg">Our Gallery</p>
+        <div class="row">
+            {% for image in images %}
+            <div class="col-lg-4 col-md-4 col-sm-4 g-3">
+                <a href="{{url_for('static', filename='imgs/uploads/' ~ image.filename)}}" class="glightbox mg-fluid rounded img-thumbnail" data-gallery="gallery">
+                    <label class="text-center">{{image.data_uploaded}}</label>
+                    <img src="{{url_for('static', filename='imgs/uploads/' ~ image.filename)}}" class="img-fluid rounded brand-thumbnail" alt="{{image.filename}}">
+                </a>
+            </div>
+            {% endfor %}
+        </div>
+        <div class="row mt-3">
+            <div class="col-12 text-center">
+                <a href="{{ url_for('gallery.home') }}" class="btn btn-brand-orange form-control p-3 fs-3 fw-bolder text-uppercase fst-italic text-white">View More</a>
+            </div>
         </div>
     </div>
 </div>

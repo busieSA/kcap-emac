@@ -1,5 +1,7 @@
-from . import admin
 from flask import render_template, url_for, redirect, flash
+from . import admin
+from app.nerd.nerd import get_time_year
+
 
 @admin.route('/', methods=['GET', 'POST'])
 def home():
@@ -13,3 +15,6 @@ def register():
     return render_template('admin/register.html', title=title)
 
 
+@admin.route('/dashboard')
+def dashboard():
+    return render_template('admin/NiceAdmin/index.html', year=get_time_year())

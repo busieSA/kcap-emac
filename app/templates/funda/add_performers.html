@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Performers</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Add Performers for {{ school.name }}</h1>
+        <form method="post" action="{{ url_for('funda.add_performers', id=school.id) }}">
+            <div id="performers">
+                <div class="performer">
+                    <h3>Performer</h3>
+                    <div class="mb-3">
+                        <label for="performer_name" class="form-label">Name</label>
+                        <input type="text" class="form-control" name="performer_name" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="performer_surname" class="form-label">Surname</label>
+                        <input type="text" class="form-control" name="performer_surname" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="performer_age" class="form-label">Age</label>
+                        <input type="number" class="form-control" name="performer_age" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="performer_gender" class="form-label">Gender</label>
+                        <select class="form-control" name="performer_gender" required>
+                            {% for gender in genders %}
+                            <option value="{{ gender.id }}">{{ gender.name }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <button type="button" id="add_performer" class="btn btn-secondary">Add Another Performer</button>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+    
+    <script>
+        document.getElementById('add_performer').addEventListener('click', function() {
+            let performers = document.getElementById('performers');
+            let newPerformer = document.querySelector('.performer').cloneNode(true);
+            newPerformer.querySelectorAll('input').forEach(input => input.value = ''); // Clear values in new performer fields
+            performers.appendChild(newPerformer);
+        });
+    </script>
+</body>
+</html>

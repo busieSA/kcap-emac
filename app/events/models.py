@@ -11,7 +11,7 @@ class Event(db.Model):
     date_added = db.Column(db.DateTime(timezone=True), default=func.now())
 
 class AnnualEvent(db.Model):
-    id = db.Column(db.Interger, primary_key=True)
+    id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(), nullable=False)
     description = db.Column(db.String(), nullable=False)
     annual_event_date_time = db.Column(db.DateTime)

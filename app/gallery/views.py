@@ -10,9 +10,6 @@ from flask_login import current_user, login_required
 #from app.gallery.forms import 
 
 
-
-
-
 @gallery.route('/')
 def home():
     title = "Images Gallery Page"

@@ -73,6 +73,11 @@ def get_time_day():
     day = now.day
     return day
 
+# Culculate hours for morning, afternoon, goodday.
+# get current time
+# based on the current time we can then say it's which time of the day and the way to greet during that time of the day.
+
+
 #def generate_client_code(name):
     '''
     generates random castomer code, 

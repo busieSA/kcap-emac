@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block body %}
+
+
+<div class="container-fluid p-5">
+
+    <div class="container brand-main-padding">
+        <div class="row justify-content-center">
+            <div class="col-auto"></div>
+            <div class="col-lg-5 col-md-5 col-sm-12 align-self-center">
+
+                <h1>Update Competition</h1>
+                <form action="{{ url_for('comp.update_competition', id=competition.id) }}"  method="POST" enctype="multipart/form-data">
+                    <label class="text-white" for="name">Name:</label>
+                    <input class="form-control" type="text" name="name" id="name" value="{{ competition.name }}" required><br>
+                    <label class="text-white"  for="date">Date:</label>
+                    <input class="form-control" type="datetime-local" name="date" id="date" value="{{ competition.date }}" required><br>
+                    <label class="text-white"  for="description">Description:</label>
+                    <textarea class="form-control" name="description" id="description" required>{{ competition.description }}</textarea><br>
+                    <label class="text-white"  for="status">Status:</label>
+                    <input class="form-control" type="text" name="status" id="status" value="{{ competition.status }}"><br>
+                    <label class="text-white"  for="location">Location:</label>
+                    <input class="form-control" type="text" name="location" id="location" value="{{ competition.location }}"><br>
+                    <label class="text-white"  for="max_participants">Max Participants:</label>
+                    <input class="form-control" type="number" name="max_participants" id="max_participants" value="{{ competition.max_participants }}"><br>
+
+                    <input type="file" name="file" accept="file/*">
+
+                    <button class="btn btn-brand-orange text-white form-control" type="submit">Update Competition</button>
+                </form>
+            </div>
+            <div class="col-auto"></div>
+        </div>
+        
+        <a class="text-decoration-none fw-bold" href="{{ url_for('comp.home') }}"><i class="bi bi-arrow-left-square-fill"></i> Back</a>
+    </div>
+</div>
+
+{% endblock body %}

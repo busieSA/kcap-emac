@@ -1,0 +1,21 @@
+<!-- create_entry.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Entry Form</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/5.1.0/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+    
+    <p class="">successfully Added School {{school.name}}</p>
+    <a href="{{url_for('funda.add_performers', id=school.id)}}" class="">Add More Perfomers</a>
+
+    <!-- Bootstrap 5 JS and dependencies (optional) -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.1.0/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

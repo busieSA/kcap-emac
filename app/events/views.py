@@ -5,6 +5,7 @@ from app.events.forms import EventForm
 
 @events.route('/', methods=['GET', 'POST'])
 def home():
+    # showing all events here on this route
     title = "Events"
     form = EventForm()
     #query the db for events to list on the site here    
@@ -15,6 +16,7 @@ def home():
 def create_event():
     title = "Create New Event"
     form = EventForm()
+    
     return render_template('', title=title, form=form)
 
 

@@ -28,6 +28,9 @@ def app_starter():
     #ensures Upload folder exist
     os.makedirs(app.config['UPLOAD_FOLDER'], exist_ok=True)
 
+    #from app.funda.models import School, Gender, Teacher, Area, Tel, Synopsis, Performer
+    #from app.events.models import Event, AnnualEvent
+    #from app.gallery.models import Media
     from app.auth.models import User
 
     login_manager = LoginManager()
@@ -46,6 +49,10 @@ def app_starter():
     from app.events import events, views
     from app.bookings import bookings, views
     from app.gallery import gallery, views
+    from app.comp import comp, views
+    from app.admin import admin, views
+    from app.funda import funda, views
+
 
 
 
@@ -55,6 +62,9 @@ def app_starter():
     app.register_blueprint(events, url_prefix='/events')
     app.register_blueprint(bookings, url_prefix='/bookings')
     app.register_blueprint(gallery, url_prefix='/gallery')
+    app.register_blueprint(comp, url_prefix='/compatitions')
+    app.register_blueprint(admin, url_prefix='/admin')
+    app.register_blueprint(funda, url_prefix='/funda')
 
 
     with app.app_context():

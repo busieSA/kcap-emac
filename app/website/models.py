@@ -1,10 +1,9 @@
 from app import db
 from sqlalchemy.sql import func
 
-class ContactUs(db.Model):
+class Enquiry(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(), nullable=False)
-    lastname = db.Column(db.String(), nullable=False)
     email = db.Column(db.String(), unique=True, nullable=False)
     subject = db.Column(db.String(), nullable=False)
     message = db.Column(db.String(), nullable=False)
@@ -25,7 +24,5 @@ class Event(db.Model):
    # media_filename = db.Column(db.String(100))
     #event_date = db.Column(db.Date())
     date_created = db.Column(db.DateTime(timezone=True), default=func.now())
-
-
 
 """

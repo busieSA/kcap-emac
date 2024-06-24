@@ -1,6 +1,6 @@
 from flask import Blueprint
 
-comp = Blueprint("compy", __name__)
+comp = Blueprint("comp", __name__)
 
 from . import views
 

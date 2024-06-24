@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Success Page</title>
+</head>
+<body>
+    <h1>Entry Successfully Created!</h1>
+    
+    <h2>School Details</h2>
+    <p><strong>ID:</strong> {{ school.id }}</p>
+    <p><strong>Name:</strong> {{ school.name }}</p>
+    <p><strong>Date Added:</strong> {{ school.date_added }}</p>
+    
+    <h2>Area</h2>
+    {% if area %}
+        <p><strong>Name:</strong> {{ area.name }}</p>
+        <p><strong>Date Added:</strong> {{ area.date_added }}</p>
+    {% else %}
+        <p>No area information available.</p>
+    {% endif %}
+    
+    <h2>Synopsis</h2>
+    {% if synopsis %}
+        <p><strong>Text:</strong> {{ synopsis.text }}</p>
+        <p><strong>Date Added:</strong> {{ synopsis.date_added }}</p>
+    {% else %}
+        <p>No synopsis information available.</p>
+    {% endif %}
+    
+    <h2>Performers</h2>
+    {% if performers %}
+        <ul>
+        {% for performer in performers %}
+            <li>
+                <p><strong>Name:</strong> {{ performer.name }}</p>
+                <p><strong>Surname:</strong> {{ performer.surname }}</p>
+                <p><strong>Age:</strong> {{ performer.age }}</p>
+                <p><strong>Date Added:</strong> {{ performer.date_added }}</p>
+                <p><strong>Gender:</strong> {{ performer.gender.name }}</p>
+            </li>
+        {% endfor %}
+        </ul>
+    {% else %}
+        <p>No performers information available.</p>
+    {% endif %}
+</body>
+</html>
