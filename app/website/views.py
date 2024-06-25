@@ -5,9 +5,13 @@ from app.website.forms import SubscriberForm, ContactUsForm
 from app.nerd.nerd import *
 from app.gallery.models import Media
 from app.events.models import Event, AnnualEvent
+from app.comp.models import Comp
+from flask_login import current_user
 
 
 year = get_time_year()
+
+
 
 @website.route('/')
 @website.route('/home')
@@ -15,8 +19,12 @@ def home():
     title ="Home Page"
     get_id = generate_client_id()
     images = Media.query.order_by(Media.data_uploaded.desc()).limit(6).all()
+    competitions = Comp.query.limit(2).all()
    # flash('hello, now!!!', category='info')
-    return render_template("website/home.html", title=title, get_id=get_id, year=year, images=images)
+    return render_template("website/home.html", title=title, get_id=get_id, 
+                           year=year,
+                           images=images,
+                           competitions=competitions)
 
 @website.route('/contact-us', methods=["POST", "GET"])
 def contact_us():
@@ -51,6 +59,16 @@ def donate():
     title = "donate-to-kcap"
     return render_template("website/donate.html", title=title)
 
+
+@website.route('/what-we-do')
+def what_we_do():
+    title = "What we do"
+    return render_template("website/what-we-do.html", title=title, year=year)
+
+
+@website.route('/who-we-are')
+def who_we_are():
+    return render_template("website/who-we-are.html")
 
 @website.errorhandler(400)
 def bad_request(e):

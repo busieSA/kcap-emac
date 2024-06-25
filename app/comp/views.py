@@ -13,7 +13,15 @@ def home():
     title = "competitions"
     competitions = Comp.query.all()
     current_time = datetime.utcnow()
-    return render_template('comp/home.html', competitions=competitions, current_time=current_time)
+    page = request.args.get('page', 1, type=int)
+    per_page = 1
+    start = (page - 1) * per_page
+    end = start + per_page
+    total_pages = (len(competitions) + per_page - 1) // per_page
+
+    items_on_page = competitions[start:end]
+
+    return render_template('comp/home.html', competitions=competitions, current_time=current_time, total_pages=total_pages, items_on_page=items_on_page, page=page)
 
 
 @comp.route('/add-competition', methods=['GET', 'POST'])

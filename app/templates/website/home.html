@@ -6,41 +6,58 @@
 
 {% include "ad_banners.html" %}
 
-<div class="container-fluid">
 
-    <div class="row justify-content-center">
-        {% for competition in competitions %}
-        <div class="col-lg-4 col-md-4 col-sm-12 align-self-center">
-            <div class="card text-white">
-                <div class="card-body">
-                  <h5 class="card-title">{{competition.name}}</h5>
-                  <h6 class="card-subtitle mb-2 text-body-secondary">Card subtitle</h6>
-                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                  <a href="#" class="card-link">Card link</a>
-                  <a href="#" class="card-link">Another link</a>
+
+<div class="container-fluid space">
+    <h5 class="text-white display-3 text-center mb-3 fst-italic"> Competitions </h5>
+
+    <div class="container pt-5"> 
+        <div class="row justify-content-center">
+            {% for competition in competitions %}
+                <div class="col-lg-6 col-md-6 col-sm-12 align-self-stretch d-flex flex-column mb-3">
+                    <div class="card text-white bg-brand-shade-two flex-grow-1 rounded border-top border-1 shadow-sm">
+                        <div class="row g-1">
+                            <div class="col-md-4 col-lg-4 col-sm-12 align-self-center  border-end">
+                                <img class="card-img-top img-fluid rounded"  src="{{url_for('static', filename='imgs/uploads/' ~ competition.filename)}}" alt="" srcset="">
+                                <a href="{{'auth.register'}}" class="card-link text-brand-orange text-uppercase text-decoration-none fw-bolder fs-6 fst-italic border-1 p-3 rounded shadow d-flex">Register</a>
+                            </div>
+                            <div class="col-md-8 col-lg-8 col-sm-12 align-self-center">
+                                <div class="card-body">
+                                    <h6 class="card-subtitle mb-2 text-brand-orange text-uppercase fst-italic">{{ competition.status }}</h6>
+                                    <h5 class="card-title text-start mb-3 fw-bold fs-2 py-3 text-uppercase">{{competition.name}}</h5>
+                                    <div class="col-auto"><h6 class="card-subtitle mb-2 text-brand-orange text-uppercase fst-italic">{{ competition.date }}</h6></div>
+                                    {# <p class="card-text">{{ competition.description }}</p> #}
+                                    <p class="card-text"> <span class="fw-bold pe-2">Venue:</span> {{ competition.location }}</p>
+                                </div>
+                            </div>
+                            
+                        </div>
+                        
+                      </div>
+    
                 </div>
-              </div>
+                {% endfor %}
         </div>
-        {% endfor %}
     </div>
 
 </div>
-<div class="container-fluid text-center p-3">
-    <div class="container py-5">
-        <div class="row justify-content-center g-3">
+<div class="container-fluid text-center">
+    <div class="container presentation">
+        <h5 class="text-white display-3 text-center mb-3 fst-italic"> About Us </h5>
+        <div class="row justify-content-center g-3 pt-5">
             <div class="col-sm-12 col-lg-6 col-md-6 align-self-stretch d-flex flex-column">
-                <div class="border-brand-orange border-1 text-white p-3 rounded flex-grow-1">
+                <div class="border-brand-orange border-1 text-white p-3 rounded flex-grow-1 align-content-center">
                     <h3 class="text-uppercase fw-bold">Mission</h3>
-                    <p class="">
+                    <p class="fs-3">
                         KCAP EMAC aims to discover, develop, expose, and contribute artists towards sustainable employment opportunities while
                         providing creative, quality arts and entertainment to the community.
                     </p>
                 </div>
             </div>
             <div class="col-sm-12 col-lg-6 col-md-6 align-self-stretch d-flex flex-column">
-                <div class="border-brand-orange border-1 text-white p-3 rounded flex-grow-1">
+                <div class="border-brand-orange border-1 text-white p-3 rounded flex-grow-1 align-content-center">
                     <h3 class="text-uppercase fw-bold">Vision</h3>
-                    <p class="">
+                    <p class="fs-3">
                         KCAP (EMAC) aspires to become a leading community organization in South Africa, fostering a positive and vibrant artistic
                         environment where various forms of arts are developed and appreciated, thereby enhancing the quality of life for youth, artists, and the community.
                     </p>
@@ -49,19 +66,19 @@
         </div>
 
     </div>
-    <a href="#" class="text-decoration-none d-flex align-items-center justify-content-end text-brand-orange fw-bolder pe-5 fs-4">Learn More...</a>
+    <a href="{{url_for('website.who_we_are')}}" class="text-decoration-none d-flex align-items-center justify-content-end text-brand-orange fw-bolder pe-5 fs-4">Learn More...</a>
 
     
 </div>
 
 <div class="container-fluid bg-brand-shade-one">
     <div class="container brand-main-padding">
-        <p class="h4 text-white text-center display-4 text-uppercase fw-bold shadow-lg">Our Gallery</p>
+        <p class="h4 text-white text-center display-3 fst-atilc py-3">Gallery</p>
         <div class="row">
             {% for image in images %}
-            <div class="col-lg-4 col-md-4 col-sm-4 g-3">
+            <div class="col-lg-4 col-md-4 col-sm-4 g-5">
                 <a href="{{url_for('static', filename='imgs/uploads/' ~ image.filename)}}" class="glightbox mg-fluid rounded img-thumbnail" data-gallery="gallery">
-                    <label class="text-center">{{image.data_uploaded}}</label>
+                    {# <h5 class="text-white display-3 text-center mb-3 fst-italic"> Competitions </h5> #}
                     <img src="{{url_for('static', filename='imgs/uploads/' ~ image.filename)}}" class="img-fluid rounded brand-thumbnail" alt="{{image.filename}}">
                 </a>
             </div>

@@ -13,8 +13,14 @@ from flask_login import current_user, login_required
 @gallery.route('/')
 def home():
     title = "Images Gallery Page"
-    images = Media.query.all()
+    #images = Media.query.all()
+    page = request.args.get('page', 1, type=int)
+    images = Media.query.paginate( page=page ,per_page=6)
+
+
     return render_template('gallery/home.html', title=title, images=images)
+
+
 
 @gallery.route('/upload', methods=['POST', 'GET'])
 @login_required

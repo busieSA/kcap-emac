@@ -21,7 +21,7 @@
     
     <div class="container p-3">
         <div class="row">
-            {% for image in images %}
+            {% for image in images.items %}
             
             <div class="col-lg-4 col-md-4 col-sm-4 g-3">
                 <div class="card border-brand-orange border-2 border-brand-start-orange card-brand-frame" >
@@ -42,7 +42,7 @@
     
     <div class="container p-3">
         <div class="row">
-            {% for image in images %}
+            {% for image in images.items %}
             
             <div class="col-lg-4 col-md-4 col-sm-4 g-3">
                 <a href="{{url_for('static', filename='imgs/uploads/' ~ image.filename)}}" class="glightbox mg-fluid rounded img-thumbnail" data-gallery="gallery">

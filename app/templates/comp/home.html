@@ -34,7 +34,7 @@
             </thead>
             <tbody>
 
-                {% for competition in competitions %}
+                {% for competition in items_on_page %}
                 
                 <tr>
                     <td>{{ competition.name }}</td>
@@ -48,39 +48,66 @@
                 </tr>
                 
                 {% endfor %}
+
+
+
+                
+
+
             </tbody>
           </table>
+
+          <nav aria-label="Page navigation example" class="">
+            <ul class="pagination pagination-sm justify-content-center">
+                {% if page > 1 %}
+                
+                <li class="page-item"><a class="page-link bg-transparent text-white" href="{{url_for('comp.home', page=page-1)}}">Previous</a></li>
+                {% endif %}
+              
+                <span class="small fst-italic px-3 border" >page {{page}} of {{ total_pages}}</span>
+                
+                {% if page < total_pages %}
+                
+                <li class="page-item"><a class="page-link bg-transparent text-white" href="{{url_for('comp.home', page=page+1)}}">Next</a></li>
+                
+                {% endif %}
+                
+            </ul>
+          </nav>
        
     </div>
 
     <div class="container">
         
         <div class="row justify-content-center">
+
+        
+
             {% for competition in competitions %}
-            <div class="col-lg-4 col-md-4 col-sm-12 align-self-center">
-                <div class="card text-white bg-brand-shade-two">
-                    <div class="card-body">
-                      <h5 class="card-title text-center mb-3 fw-bold">{{competition.name}}</h5>
-                      {# Checking the event status in the template
-                        {% if competition.status < current_time %}
-                        <h6 class="card-subtitle mb-2 text-brand-orange text-uppercase fst-italic">past</h6>
-                        {% else %}
-                        
-                        {% endif %}
-                        
-                        The compare needs checking cause the utcnow() function has problems and i am not sureas to why that
-                        is <happening class=""></happening>
-                        
-                        #}
-                        <div class="row">
-                            <div class="col"><h6 class="card-subtitle mb-2 text-brand-orange text-uppercase fst-italic">{{ competition.status }}</h6></div>
-                            <div class="col-auto"><h6 class="card-subtitle mb-2 text-brand-orange text-uppercase fst-italic">{{ competition.date }}</h6></div>
+            <div class="col-lg-6 col-md-6 col-sm-12 align-self-stretch d-flex flex-column mb-4">
+                <div class="card text-white bg-brand-shade-two flex-grow-1 rounded border-top border-1">
+                    <div class="row g-1">
+                        <div class="col-md-4 col-lg-4 col-sm-12 align-self-center  border-end">
+                            <img class="card-img-top img-fluid rounded"  src="{{url_for('static', filename='imgs/uploads/' ~ competition.filename)}}" alt="" srcset="">
+                            <a href="{{'auth.register'}}" class="card-link text-brand-orange text-uppercase text-decoration-none fw-bolder fs-6 fst-italic border-1 p-3 rounded shadow d-flex">Register</a>
                         </div>
-                      <img class="card-img-top img-fluid rounded mb-3" src="{{url_for('static', filename='imgs/uploads/' ~ competition.filename)}}" alt="" srcset="">
-                      <p class="card-text">{{ competition.description }}</p>
-                      <a href="{{'auth.register'}}" class="card-link text-white text-uppercase text-decoration-none">Register</a>
+                        <div class="col-md-8 col-lg-8 col-sm-12 align-self-center">
+                            <div class="card-body">
+                                <h6 class="card-subtitle mb-2 text-brand-orange text-uppercase fst-italic">{{ competition.status }}</h6>
+                                <h5 class="card-title text-start mb-3 fw-bold fs-2 py-3 text-uppercase">{{competition.name}}</h5>
+                                <div class="col-auto"><h6 class="card-subtitle mb-2 text-brand-orange text-uppercase fst-italic">{{ competition.date }}</h6></div>
+                                {# <p class="card-text">{{ competition.description }}</p> #}
+                                <p class="card-text"> <span class="fw-bold pe-2">Venue:</span> {{ competition.location }}</p>
+                            </div>
+                        </div>
+                        
                     </div>
+                    
+                    
+                  
+                    
                   </div>
+
             </div>
             {% endfor %}
         </div>
@@ -90,27 +117,41 @@
     
     {% else %}
     
-    
-    
     <div class="container">
         
         <div class="row justify-content-center">
+
+        
+
             {% for competition in competitions %}
-            <div class="col-lg-4 col-md-4 col-sm-12 align-self-center">
-                <div class="card text-white">
-                    <div class="card-body">
-                      <h5 class="card-title">{{competition.name}}</h5>
-                      <h6 class="card-subtitle mb-2 text-body-secondary">Card subtitle</h6>
-                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                      <a href="#" class="card-link">Card link</a>
-                      <a href="#" class="card-link">Another link</a>
+            <div class="col-lg-6 col-md-6 col-sm-12 align-self-stretch d-flex flex-column mb-4">
+                <div class="card text-white bg-brand-shade-two flex-grow-1 rounded border-top border-1">
+                    <div class="row g-1">
+                        <div class="col-md-4 col-lg-4 col-sm-12 align-self-center  border-end">
+                            <img class="card-img-top img-fluid rounded"  src="{{url_for('static', filename='imgs/uploads/' ~ competition.filename)}}" alt="" srcset="">
+                            <a href="{{'auth.register'}}" class="card-link text-brand-orange text-uppercase text-decoration-none fw-bolder fs-6 fst-italic border-1 p-3 rounded shadow d-flex">Register</a>
+                        </div>
+                        <div class="col-md-8 col-lg-8 col-sm-12 align-self-center">
+                            <div class="card-body">
+                                <h6 class="card-subtitle mb-2 text-brand-orange text-uppercase fst-italic">{{ competition.status }}</h6>
+                                <h5 class="card-title text-start mb-3 fw-bold fs-2 py-3 text-uppercase">{{competition.name}}</h5>
+                                <div class="col-auto"><h6 class="card-subtitle mb-2 text-brand-orange text-uppercase fst-italic">{{ competition.date }}</h6></div>
+                                {# <p class="card-text">{{ competition.description }}</p> #}
+                                <p class="card-text"> <span class="fw-bold pe-2">Venue:</span> {{ competition.location }}</p>
+                            </div>
+                        </div>
+                        
                     </div>
+                    
+                    
+                  
+                    
                   </div>
+
             </div>
             {% endfor %}
         </div>
     </div>
-
     
     {% endif %}
 

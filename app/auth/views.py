@@ -1,41 +1,45 @@
-from flask import render_template, flash, request, redirect, url_for
+from flask import render_template, flash, request, redirect, url_for, jsonify
 from app import db
+from sqlalchemy import func
 from app.auth import auth
 from app.auth.forms import RegisterUserForm, UserLoginForm
 from app.auth.models import User
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import login_user, login_required, logout_user, current_user
 from app.nerd.nerd import *
+from app.website.models import Enquiry
+from app.gallery.models import Media
+from collections import defaultdict
+
 
 
 @auth.route('/')
 def got_to_login():
     return redirect(url_for('auth.login'))
 
-
 @auth.route('/login', methods=['GET', 'POST'])
 def login():
     title = "User Login Page"
     form = UserLoginForm()
-    if form.validate_on_submit():
-        email = request.form.get('email')
-        user = User.query.filter_by(email=email).first()  # Fix filter_by argument
-        print(user)
+    
+    if form.validate_on_submit() and request.method == "POST":
+        email = form.email.data  # Use form data directly
+        user = User.query.filter_by(email=email).first()
+        
         if user:
-            password = request.form.get('password')
-            form.email.data = ''
+            password = form.password.data  # Use form data directly
             password_hash = user.password_hash
-            check = check_password_hash(password_hash, password)
-            if check:
+            
+            if check_password_hash(password_hash, password):
                 login_user(user)
-                flash('You Are Logged In', category='success')
+                flash('You are logged in!', category='success')
                 return redirect(url_for('auth.user_admin'))
             else:
-                flash('Please check your credentials and try again...', category='error')
+                flash('Invalid credentials, please try again.', category='error')
         else:
-            flash('Please check your credentials and try again...', category='error')
+            flash('Invalid credentials, please try again.', category='error')
+    
     return render_template('auth/login.html', title=title, form=form)
-
 
 
 @auth.route('/register-user', methods=['GET', 'POST'])
@@ -87,7 +91,25 @@ def register():
 @auth.route('/admin')
 def user_admin():
     title = "temp admin"
-    return render_template('auth/admin.html', title=title, user=current_user)
+    enquries_count = Enquiry.query.count()
+    user_count = User.query.count()
+    media_count = Media.query.count()
+
+    media_uploads = db.session.query(Media.data_uploaded).all()
+    date_counts = defaultdict(int)
+    for record in media_uploads:
+        date_str = record.data_uploaded.strftime('%Y-%m-%d')
+        date_counts[date_str] += 1
+
+    labels = list(date_counts.keys())
+    print(labels)
+    data = list(date_counts.values())
+    print(data)
+
+    return render_template('auth/admin.html', title=title, user=current_user,
+                           enquries_count=enquries_count,
+                           user_count=user_count, media_count=media_count, 
+                           labels=labels, data=data)
 
 
 @auth.route('/logout')

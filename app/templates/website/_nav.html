@@ -14,7 +14,10 @@
           </ul>
           <ul class="nav">
             <li class="nav-item"><a href="{{url_for('auth.login')}}" class="nav-link link-body-emphasis text-white px-3 fw-bold">Login</a></li>
+
+            {% if current_user.is_authenticated %}
             <li class="nav-item"><a href="{{url_for('auth.logout')}}" class="nav-link link-body-emphasis text-white px-3 fw-bold">SignOut</a></li>
+            {% endif %}
           </ul>
         </div>
       </nav>
@@ -25,8 +28,14 @@
             <span class="fs-5 text-white fw-bolder">KwaMashu Community Advancement Projects</span>
           </a>
           <ul class="nav ms-auto">
-            <li class="nav-item brand-diplay-huge px-3"><a href="{{url_for('website.home')}}" class="nav-link link-body-emphasis text-white px-1 brand-hover-diplay-huge fw-bold">who we are </a></li>
-            <li class="nav-item brand-diplay-huge px-3"><a href="{{url_for('website.home')}}" class="nav-link link-body-emphasis text-white px-2 brand-hover-diplay-huge fw-bold">What we do</a></li>
+
+            {% if request.endpoint != "who_we_are" %}
+            <li class="nav-item brand-diplay-huge px-3"><a href="{{url_for('website.who_we_are')}}" class="nav-link link-body-emphasis text-white px-1 brand-hover-diplay-huge fw-bold">who we are </a></li>
+            {% endif %}
+
+            {% if request.endpoint != "what_we_do" %}
+            <li class="nav-item brand-diplay-huge px-3"><a href="{{url_for('website.what_we_do')}}" class="nav-link link-body-emphasis text-white px-2 brand-hover-diplay-huge fw-bold">What we do</a></li>
+            {% endif %}
           </ul>
           {#
             <form class="col-12 col-lg-auto mb-3 mb-lg-0" role="search">

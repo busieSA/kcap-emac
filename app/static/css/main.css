@@ -245,46 +245,19 @@
     padding-left: 2em;
     padding-top: 1em;
 }
-.loc-file-img{
-    background-image: url(../imgs/attorney-2743547_640.jpg);
-    background-repeat: no-repeat;
-    background-size: cover;
-}
-.loc-border-gold{
-    border-style: solid ;
-    border-color: #bb8d37;
-}
-
-.loc-calendar{
-    background-color: #938C31;
-    text-align: center;
-    color: white;
-    font-weight: 900;
-}
-
-.loc-cal-body{
-    columns: auto;
-}
-
-.loc-border-green{
-    border-style: solid ;
-    border-color: green;
-}
-
-.loc-no-data{
-    padding: 10em;
-    width: auto;
-    height: 50vh;
-}
 
 .space{
-    background-image:linear-gradient(to bottom, #000000b6, #ff5f1f8e), url(../imgs/jpg/bg1.jpg);
+    background-image:linear-gradient(to bottom, #9c8f8f70, #000000), url(../imgs/jpg/bg1.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     height: 75vh;
     align-content: center;
 }
 
+.presentation{
+  height: 75vh !important;
+  align-content: center;
+}
 
 .banner{
   background-image:linear-gradient(to bottom, #ff5f1fd0, #000000e7), url(../imgs/jpg/banner.JPG);
@@ -339,22 +312,6 @@ The ckeditor css
   }
   
 
-/*Admin css here */
-
-.bg-img-brand-cover{
-    background-image: linear-gradient(to bottom,var(--brand-orange), rgba(8, 8, 8, 0.897)),url(../imgs/sunset.jpg);
-    background-repeat: no-repeat;
-    background-size: cover;
-    height: 100vh;
-}
-
-.loc-law{
-    background-image: linear-gradient(to bottom, rgba(18, 76, 61, 0.904), rgba(147, 140, 49, 0.459)),url(../imgs/law.jpeg);
-    background-repeat: no-repeat;
-    background-size: cover;
-    height: auto;
-}
-
 /*
 
 background-image: url(../imgs/4-Dance-Class.jpg);
@@ -403,3 +360,122 @@ background-image: url(../imgs/4-Dance-Class.jpg);
   -ms-border-radius: 0.5rem !important;
   -o-border-radius: 0.5rem !important;
 }
+
+/* call to action button */
+.fab-container {
+  position: fixed;
+  bottom: 50px;
+  right: 50px;
+  z-index: 999;
+  cursor: pointer;
+}
+
+.fab-icon-holder {
+  width: 50px;
+  height: 50px;
+  border-radius: 100%;
+  -webkit-border-radius: 100%;
+  -moz-border-radius: 100%;
+  -ms-border-radius: 100%;
+  -o-border-radius: 100%;
+  background: var(--brand-orange);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+
+}
+
+.fab-icon-holder:hover {
+  opacity: 0.8;
+}
+
+.fab-icon-holder i {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  height: 100%;
+  font-style: 25px;
+  color: white;
+}
+
+.fab {
+  width: 50px;
+  height: 50px;
+  border-radius: 100%;
+  background: var(--brand-orange);
+  -webkit-border-radius: 100%;
+  -moz-border-radius: 100%;
+  -ms-border-radius: 100%;
+  -o-border-radius: 100%;
+}
+
+.fab:hover {
+  background-color:var(--brand-shade-two);
+  text-decoration: none;
+}
+
+.fabaR {
+  font-size: 12vmin;
+  border-radius: none;
+  background: none;
+  -webkit-border-radius: none;
+  -moz-border-radius: none;
+  -ms-border-radius: none;
+  -o-border-radius: none;
+}
+
+.fab-obtions {
+  text-decoration: none;
+  list-style-type: none;
+  margin: 0;
+  position: absolute;
+  bottom: 70px;
+  right: 0;
+  opacity: 0;
+  transition: all 0.3s ease;
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  -ms-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  transform: scale(0);
+  -webkit-transform: scale(0);
+  -moz-transform: scale(0);
+  -ms-transform: scale(0);
+  -o-transform: scale(0);
+  transform-origin: 85% bottom;
+}
+
+.fab:hover+.fab-obtions,
+.fab-obtions:hover {
+  opacity: 1;
+  transform: scale(1);
+  -webkit-transform: scale(1);
+  -moz-transform: scale(1);
+  -ms-transform: scale(1);
+  -o-transform: scale(1);
+
+}
+
+.fab-obtions li {
+  display: flex;
+  justify-content: flex-end;
+  padding: 5px;
+}
+
+.fab-label {
+  padding: 2px 5px;
+  align-self: center;
+  user-select: none;
+  white-space: nowrap;
+  border-radius: 3px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -ms-border-radius: 3px;
+  -o-border-radius: 3px;
+  font-size: 16px;
+  background: #666666;
+  color: white;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+  margin-right: 10px;
+
+}
+

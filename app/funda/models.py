@@ -8,10 +8,8 @@ class School(db.Model):
 
     synopsis = db.relationship('Synopsis', backref='school', lazy=True, uselist=False)
     area = db.relationship('Area', backref='school', lazy=True, uselist=False)
-
     teachers = db.relationship('Teacher', backref='school', lazy=True)
-
-    perfomers = db.relationship('Performer', backref='school_ref',cascade='all, delete-orphan')
+    performers = db.relationship('Performer', backref='school', cascade='all, delete-orphan', overlaps="school_ref")
 
 class Teacher(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -21,6 +19,7 @@ class Teacher(db.Model):
     date_added = db.Column(db.DateTime(timezone=True), default=func.now())
 
     school_id = db.Column(db.Integer, db.ForeignKey('school.id'))
+    gender_id = db.Column(db.Integer, db.ForeignKey('gender.id'), nullable=False)
     tel = db.relationship('Tel', backref='teacher', lazy=True, uselist=False)
 
 class Tel(db.Model):
@@ -29,7 +28,6 @@ class Tel(db.Model):
     date_added = db.Column(db.DateTime(timezone=True), default=func.now())
 
     teacher_id = db.Column(db.Integer, db.ForeignKey('teacher.id'))
-
 
 class Area(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -53,13 +51,11 @@ class Performer(db.Model):
     date_added = db.Column(db.DateTime(timezone=True), default=func.now())
 
     school_id = db.Column(db.Integer, db.ForeignKey('school.id'), nullable=False)
-    school = db.relationship('School', backref='performers',foreign_keys=[school_id])
-    
-    gender_id = db.Column(db.Integer, db.ForeignKey('gender.id'),nullable=False)
-    gender = db.relationship('Gender', back_populates='performers', lazy=True, uselist=False)
+    gender_id = db.Column(db.Integer, db.ForeignKey('gender.id'), nullable=False)
 
 class Gender(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(), nullable=False)
 
-    performers = db.relationship('Performer', back_populates='gender')
+    performers = db.relationship('Performer', backref='gender', lazy=True)
+    teachers = db.relationship('Teacher', backref='gender', lazy=True)
